@@ -15,7 +15,7 @@ def suit(int):
             return "Spades"
         case _:
             return "Unknown (This is a bug)"
-def isfacecard(int):
+def value(int):
     match(int):
         case(11):
             return "Jack"
@@ -36,7 +36,8 @@ def mainloop():
             if card == None:
                 print("No cards left in the deck! Shuffle.")
             else:
-                print(f"You drew the {isfacecard(card.value)} of {suit(card.suit)}. {len(deck.cards) - deck.index} cards left in the deck")
+                print("\033c", end="")
+                print(f"You drew the {value(card.value)} of {suit(card.suit)}. {len(deck.cards) - deck.index} cards left in the deck")
         case ("s"):
             time.sleep(0.5)
             deck.shuffle()
